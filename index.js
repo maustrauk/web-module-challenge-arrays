@@ -116,8 +116,11 @@ Use the removeLastFlavor function below to do the following:
 */
 
 function removeLastFlavor(userArray){
-   user
+    userArray.pop();
+    return userArray;
 }
+
+console.log(removeLastFlavor(newArray));
 
 
 
