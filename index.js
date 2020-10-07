@@ -260,7 +260,7 @@ function getRandomInt(max) {
       let cashItem, randomNumber_1, randomNumber_2;
       userArrays.push(userArray_1, userArray_2, userArray_3, userArray_4);
       for (let i = 0; i < 31; i++) {
-        randomNumber_1 = getRandomInt(3);
+        randomNumber_1 = getRandomInt(4);
         randomNumber_2 = getRandomInt(31);
         cashItem = userArrays[randomNumber_1][randomNumber_2];
         resultArray.push(cashItem);
