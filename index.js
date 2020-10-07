@@ -221,8 +221,20 @@ Use the getAverageWordLength function below to do the following:
 */
 
 function getAverageWordLength(userArray){
-
-}
+    const wordLength = [];
+    let counter, avg = 0;
+    for (let i = 0; i < userArray.length; i++) {
+      counter = userArray[i].split(" ").length;
+      wordLength.push(counter);
+    }
+    for (i = 0; i < wordLength.length; i++) {
+      avg = avg + wordLength[i];
+    }
+    avg = avg / wordLength.length;
+    return avg;
+  }
+  
+  console.log(getAverageWordLength(originalFlavors));
 
 
 /* 💪💪💪💪💪💪💪💪💪💪 STRETCH 2: 💪💪💪💪💪💪💪💪💪
