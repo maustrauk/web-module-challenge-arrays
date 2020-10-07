@@ -158,8 +158,16 @@ Use the removeFlavorByName function below to do the following:
 */
 
 function removeFlavorByName(userArray,stringRemove){
-    
+    const ix = userArray.indexOf(stringRemove);
+    if (ix != -1) {
+        userArray.splice(ix, 1);
+        return userArray;
+    } else {
+        console.log("Index not found");
+    }
 }
+
+console.log(removeFlavorByName(newArray,"Rocky Road"));
 
 
 
@@ -187,10 +195,18 @@ Use the filterByWord function below to do the following:
     DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
 
-function filterByWord(/*your code here*/){
-    /*your code here*/
-}
-
+function filterByWord(userArray,filterString){
+    const resultArray = [];
+    for(let i=0; i < userArray.length; i++) {
+      if(userArray[i].includes(filterString)) {
+        resultArray.push(userArray[i]);
+      }
+    }
+  
+    return resultArray;
+  }
+  
+  console.log(filterByWord(originalFlavors,"Ribbon"));
 
 /* 💪💪💪💪💪🧁🍦🍨 STRETCH 🍨🍦🍫💪💪💪💪💪*/ 
 
@@ -204,8 +220,8 @@ Use the getAverageWordLength function below to do the following:
     For example: getAverageWordLength(originalFlavors) should return a number between 0 and 3.     
 */
 
-function getAverageWordLength(/*code here*/){
-    /*code here*/
+function getAverageWordLength(userArray){
+
 }
 
 
