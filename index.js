@@ -227,7 +227,7 @@ function getAverageWordLength(userArray){
       counter = userArray[i].split(" ").length;
       wordLength.push(counter);
     }
-    for (i = 0; i < wordLength.length; i++) {
+    for (let i = 0; i < wordLength.length; i++) {
       avg = avg + wordLength[i];
     }
     avg = avg / wordLength.length;
@@ -256,17 +256,28 @@ function getRandomInt(max) {
   
   
   function getRandomFlavors(userArray_1, userArray_2, userArray_3, userArray_4){
-      const userArrays = [], resultArray = [];
-      let cashItem, randomNumber_1, randomNumber_2;
-      userArrays.push(userArray_1, userArray_2, userArray_3, userArray_4);
-      for (let i = 0; i < 31; i++) {
-        randomNumber_1 = getRandomInt(4);
-        randomNumber_2 = getRandomInt(31);
-        cashItem = userArrays[randomNumber_1][randomNumber_2];
-        resultArray.push(cashItem);
+    const userArrays = [], resultArray = [];
+    let cashItem, randomNumber_1, randomNumber_2;
+    userArrays.push(userArray_1, userArray_2, userArray_3, userArray_4);
+    for (let i = 0; i < 31; i++) {
+      randomNumber_1 = getRandomInt(4);
+      if(randomNumber_1 === 0) {
+        randomNumber_2 = getRandomInt(userArray_1.length);
       }
-      return resultArray;
-  }
+      if(randomNumber_1 === 1) {
+        randomNumber_2 = getRandomInt(userArray_2.length);
+      }
+      if(randomNumber_1 === 2) {
+        randomNumber_2 = getRandomInt(userArray_3.length);
+      }
+      if(randomNumber_1 === 3) {
+        randomNumber_2 = getRandomInt(userArray_4.length);
+      }
+      cashItem = userArrays[randomNumber_1][randomNumber_2];
+      resultArray.push(cashItem);
+    }
+    return resultArray;
+}
   
   console.log(getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors));
 
