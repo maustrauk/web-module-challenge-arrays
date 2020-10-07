@@ -250,9 +250,25 @@ Use the getRandomFlavors function and new arrays below to do the following:
 */
 
 
-function getRandomFlavors(/*code here*/){
-    /*code here*/
-}
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
+  
+  
+  function getRandomFlavors(userArray_1, userArray_2, userArray_3, userArray_4){
+      const userArrays = [], resultArray = [];
+      let cashItem, randomNumber_1, randomNumber_2;
+      userArrays.push(userArray_1, userArray_2, userArray_3, userArray_4);
+      for (let i = 0; i < 31; i++) {
+        randomNumber_1 = getRandomInt(3);
+        randomNumber_2 = getRandomInt(31);
+        cashItem = userArrays[randomNumber_1][randomNumber_2];
+        resultArray.push(cashItem);
+      }
+      return resultArray;
+  }
+  
+  console.log(getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors));
 
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
 const newFlavors = [
