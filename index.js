@@ -33,7 +33,7 @@ const originalFlavors = [
     "Strawberry",
     "Vanilla",
     "Vanilla Burnt Almond"
-]
+];
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 1: Copy the Array! 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 We have an array called originalFlavors with 31 flavors (see above).  In these tasks, we will be reading and writing data to this array.  
@@ -50,12 +50,14 @@ Use the copy function below to do the following:
 
 let newArray =[];
 
-function copy(newArray,oldArray){
-    return newArray = oldArray.map(x => x);
+function copy(newArray){
+  for (let i = 0; i < originalFlavors.length; i++) {
+    newArray.push(originalFlavors[i]);
+  }
+  return newArray;
 }  
 
-newArray = copy(newArray,originalFlavors);
-console.log(newArray);
+console.log(copy(newArray));
 
 
 
@@ -250,36 +252,9 @@ Use the getRandomFlavors function and new arrays below to do the following:
 */
 
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * Math.floor(max));
-  }
-  
-  
-  function getRandomFlavors(userArray_1, userArray_2, userArray_3, userArray_4){
-    const userArrays = [], resultArray = [];
-    let cashItem, randomNumber_1, randomNumber_2;
-    userArrays.push(userArray_1, userArray_2, userArray_3, userArray_4);
-    for (let i = 0; i < 31; i++) {
-      randomNumber_1 = getRandomInt(4);
-      if(randomNumber_1 === 0) {
-        randomNumber_2 = getRandomInt(userArray_1.length);
-      }
-      if(randomNumber_1 === 1) {
-        randomNumber_2 = getRandomInt(userArray_2.length);
-      }
-      if(randomNumber_1 === 2) {
-        randomNumber_2 = getRandomInt(userArray_3.length);
-      }
-      if(randomNumber_1 === 3) {
-        randomNumber_2 = getRandomInt(userArray_4.length);
-      }
-      cashItem = userArrays[randomNumber_1][randomNumber_2];
-      resultArray.push(cashItem);
-    }
-    return resultArray;
-}
-  
-  console.log(getRandomFlavors(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors));
+
+
+
 
 // NEW DATA ARRAYS FOR STRETCH 2 ⬇️
 const newFlavors = [
@@ -362,7 +337,36 @@ const regionalFlavors = [
     "Caramel 'n' Cookies"
 ]
 
-
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+  }
+  
+  
+  function getRandomFlavors(){
+    const userArrays = [], resultArray = [];
+    let cashItem, randomNumber_1, randomNumber_2;
+    userArrays.push(originalFlavors, newFlavors, seasonalFlavors, regionalFlavors);
+    for (let i = 0; i < 31; i++) {
+      randomNumber_1 = getRandomInt(4);
+      if(randomNumber_1 === 0) {
+        randomNumber_2 = getRandomInt(originalFlavors.length);
+      }
+      if(randomNumber_1 === 1) {
+        randomNumber_2 = getRandomInt(newFlavors.length);
+      }
+      if(randomNumber_1 === 2) {
+        randomNumber_2 = getRandomInt(seasonalFlavors.length);
+      }
+      if(randomNumber_1 === 3) {
+        randomNumber_2 = getRandomInt(regionalFlavors.length);
+      }
+      cashItem = userArrays[randomNumber_1][randomNumber_2];
+      resultArray.push(cashItem);
+    }
+    return resultArray;
+}
+  
+  console.log(getRandomFlavors());
 
 /* 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑🛑🛑🛑🛑🛑 */
 function foo(){
